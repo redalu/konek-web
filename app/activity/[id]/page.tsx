@@ -4,7 +4,7 @@ import { supabase } from '@/lib/supabase'
 import ActivityPreview from '@/components/ActivityPreview'
 
 interface Props {
-  params: { id: string }
+  params: Promise<{ id: string }>
 }
 
 async function getActivity(id: string) {
