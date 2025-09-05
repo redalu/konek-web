@@ -4,7 +4,7 @@ import { supabase } from '@/lib/supabase'
 import TeamPreview from '@/components/TeamPreview'
 
 interface Props {
-  params: { id: string }
+  params: Promise<{ id: string }>
 }
 
 async function getTeam(id: string) {

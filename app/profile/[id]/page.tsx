@@ -4,7 +4,7 @@ import { supabase } from '@/lib/supabase'
 import ProfilePreview from '@/components/ProfilePreview'
 
 interface Props {
-  params: { id: string }
+  params: Promise<{ id: string }>
 }
 
 async function getProfile(id: string) {
