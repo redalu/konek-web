@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation'
 import { supabase } from '@/lib/supabase'
 import ActivityPreview from '@/components/ActivityPreview'
 
-interface Props {
+interface PageProps {
   params: Promise<{ id: string }>
 }
 
@@ -24,7 +24,7 @@ async function getActivity(id: string) {
   return activity
 }
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { id } = await params
   const activity = await getActivity(id)
   
@@ -57,7 +57,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 }
 
-export default async function ActivityPage({ params }: Props) {
+export default async function ActivityPage({ params }: PageProps) {
   const { id } = await params
   const activity = await getActivity(id)
 

@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation'
 import { supabase } from '@/lib/supabase'
 import ProfilePreview from '@/components/ProfilePreview'
 
-interface Props {
+interface PageProps {
   params: Promise<{ id: string }>
 }
 
@@ -27,7 +27,7 @@ async function getProfile(id: string) {
   return profile
 }
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { id } = await params
   const profile = await getProfile(id)
   
@@ -61,7 +61,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 }
 
-export default async function ProfilePage({ params }: Props) {
+export default async function ProfilePage({ params }: PageProps) {
   const { id } = await params
   const profile = await getProfile(id)
 

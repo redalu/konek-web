@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation'
 import { supabase } from '@/lib/supabase'
 import TeamPreview from '@/components/TeamPreview'
 
-interface Props {
+interface PageProps {
   params: Promise<{ id: string }>
 }
 
@@ -36,7 +36,7 @@ async function getTeam(id: string) {
   return team
 }
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { id } = await params
   const team = await getTeam(id)
   
@@ -69,7 +69,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 }
 
-export default async function TeamPage({ params }: Props) {
+export default async function TeamPage({ params }: PageProps) {
   const { id } = await params
   const team = await getTeam(id)
 
