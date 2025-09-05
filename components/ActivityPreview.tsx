@@ -1,6 +1,7 @@
 'use client'
 
 import styles from './ActivityPreview.module.css'
+import DeepLinkButton from './DeepLinkButton'
 
 interface Activity {
   id: string
@@ -115,7 +116,11 @@ export default function ActivityPreview({ activity }: Props) {
         </div>
 
         <div className={styles.actionButton}>
-          <a href="#" className={styles.primaryButton}>Open in Konek App</a>
+          <DeepLinkButton 
+            type="activity" 
+            id={activity.id} 
+            title={activity.title}
+          />
         </div>
       </div>
     </div>

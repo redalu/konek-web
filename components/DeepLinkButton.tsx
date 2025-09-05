@@ -8,10 +8,56 @@ interface Props {
   title: string
 }
 
+type Platform = 'ios' | 'android' | 'web'
+
+function detectPlatform(): Platform {
+  if (typeof window === 'undefined') return 'web'
+  
+  const userAgent = window.navigator.userAgent.toLowerCase()
+  
+  if (/iphone|ipad|ipod/.test(userAgent)) {
+    return 'ios'
+  } else if (/android/.test(userAgent)) {
+    return 'android'
+  }
+  
+  return 'web'
+}
+
 export default function DeepLinkButton({ type, id, title }: Props) {
   const [attemptedOpen, setAttemptedOpen] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
+  const [platform] = useState<Platform>(() => detectPlatform())
   
+  const getStoreUrl = (platform: Platform) => {
+    // URLs à configurer selon vos besoins
+    const urls = {
+      ios: {
+        appStore: 'https://apps.apple.com/app/konek/id123456789', // Remplacer par votre ID App Store
+        testFlight: 'https://testflight.apple.com/join/YOUR_TESTFLIGHT_CODE' // Remplacer par votre code TestFlight
+      },
+      android: {
+        playStore: 'https://play.google.com/store/apps/details?id=com.konek.mobileapp', // Remplacer par votre package name
+        apkDirect: 'https://github.com/yourorg/konek-mobile/releases/latest/download/konek.apk' // Remplacer par votre lien APK
+      },
+      web: {
+        expo: 'https://expo.dev/@yourorg/konek', // Remplacer par votre projet Expo
+        download: 'https://konek.app/download' // Page de téléchargement personnalisée
+      }
+    }
+    
+    switch (platform) {
+      case 'ios':
+        return urls.ios.testFlight // Utiliser testFlight pour la beta, appStore pour la version finale
+      case 'android':
+        return urls.android.apkDirect // Utiliser playStore pour la version finale, apkDirect pour la beta
+      case 'web':
+        return urls.web.download
+      default:
+        return urls.web.download
+    }
+  }
+
   const handleOpenInApp = () => {
     setIsLoading(true)
     
@@ -33,6 +79,9 @@ export default function DeepLinkButton({ type, id, title }: Props) {
     setTimeout(() => {
       setIsLoading(false)
       if (document.hasFocus() || document.visibilityState === 'visible') {
+        // Si l'app ne s'ouvre pas, rediriger vers le store approprié
+        const storeUrl = getStoreUrl(platform)
+        window.open(storeUrl, '_blank')
         setAttemptedOpen(true)
       }
       // Clean up iframe
@@ -71,18 +120,23 @@ export default function DeepLinkButton({ type, id, title }: Props) {
       </button>
       
       {attemptedOpen && (
-        <div className="mt-6 p-6 bg-gradient-to-r from-amber-50 to-orange-50 border border-amber-200 rounded-2xl shadow-lg animate-fade-in">
+        <div className="mt-6 p-6 bg-gradient-to-r from-emerald-50 to-blue-50 border border-emerald-200 rounded-2xl shadow-lg animate-fade-in">
           <div className="flex items-start space-x-3">
-            <div className="w-6 h-6 bg-amber-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-              <svg className="w-4 h-4 text-amber-600" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
+            <div className="w-6 h-6 bg-emerald-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+              <svg className="w-4 h-4 text-emerald-600" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
               </svg>
             </div>
             <div>
-              <p className="font-bold text-amber-800 mb-2">Don't have the app yet?</p>
-              <p className="text-amber-700 text-sm leading-relaxed">
-                Download Konek to join <strong>"{title}"</strong> and connect with others in your community! 
-                Available for iOS and Android.
+              <p className="font-bold text-emerald-800 mb-2">
+                {platform === 'ios' ? 'Redirected to TestFlight' : 
+                 platform === 'android' ? 'Redirected to Download' :
+                 'Redirected to Download Page'}
+              </p>
+              <p className="text-emerald-700 text-sm leading-relaxed">
+                {platform === 'ios' ? 'Install Konek from TestFlight to join' : 
+                 platform === 'android' ? 'Download and install the APK to join' :
+                 'Follow the instructions to install Konek and join'} <strong>"{title}"</strong>!
               </p>
             </div>
           </div>
