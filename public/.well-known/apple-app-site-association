@@ -1,0 +1,15 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "598ALH4B76.com.konek.mobileapp",
+        "paths": [
+          "/activity/*",
+          "/team/*",
+          "/profile/*"
+        ]
+      }
+    ]
+  }
+}
