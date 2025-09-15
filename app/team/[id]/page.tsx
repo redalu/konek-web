@@ -21,9 +21,6 @@ async function getTeam(id: string) {
           last_name,
           avatar_url
         )
-      ),
-      activity_types (
-        name
       )
     `)
     .eq('id', id)

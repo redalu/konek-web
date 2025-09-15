@@ -8,10 +8,25 @@ interface PageProps {
 }
 
 async function getActivity(id: string) {
-  // Simplified query for testing - just get basic activity data
+  // Get activity with organizer profile, activity type, group, and participant count
   const { data: activity, error } = await supabase
     .from('activities')
-    .select('*')
+    .select(`
+      *,
+      organizer:profiles!activities_created_by_fkey (
+        first_name,
+        last_name,
+        avatar_url
+      ),
+      activity_type:activity_types (
+        name
+      ),
+      group:groups!activities_group_id_fkey (
+        id,
+        name,
+        logo_url
+      )
+    `)
     .eq('id', id)
     .single()
 
@@ -20,8 +35,21 @@ async function getActivity(id: string) {
     return null
   }
 
-  console.log('Activity found:', activity)
-  return activity
+  // Get confirmed participant count separately
+  const { count: participantCount } = await supabase
+    .from('activity_participants')
+    .select('*', { count: 'exact', head: true })
+    .eq('activity_id', id)
+    .eq('status', 'confirmed')
+
+  // Add participant count to activity data
+  const activityWithCount = {
+    ...activity,
+    participant_count: participantCount || 0
+  }
+
+  console.log('Activity found:', activityWithCount)
+  return activityWithCount
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {

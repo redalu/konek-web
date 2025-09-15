@@ -8,6 +8,8 @@ interface Activity {
   title: string
   description?: string
   location?: string
+  poi_name?: string
+  address_full?: string
   start_time: string
   end_time?: string
   banner_url?: string
@@ -16,28 +18,19 @@ interface Activity {
   participant_count?: number
   skill_level?: string
   visibility?: string
-  profiles?: {
+  organizer?: {
     first_name: string
     last_name?: string
     avatar_url?: string
   }
-  activity_types?: {
+  activity_type?: {
     name: string
   }
-  groups?: {
+  group?: {
     id: string
     name: string
     logo_url?: string
   }
-  activity_participants?: Array<{
-    user_id: string
-    status: string
-    profiles: {
-      first_name: string
-      last_name?: string
-      avatar_url?: string
-    }
-  }>
 }
 
 interface Props {
@@ -52,29 +45,30 @@ export default function ActivityPreview({ activity }: Props) {
       year: 'numeric',
       month: 'long',
       day: 'numeric',
-      hour: 'numeric',
+      hour: '2-digit',
       minute: '2-digit',
+      hour12: false,
     })
   }
 
-  const creatorName = activity.profiles 
-    ? `${activity.profiles.first_name} ${activity.profiles.last_name || ''}`.trim()
+  const creatorName = activity.organizer
+    ? `${activity.organizer.first_name} ${activity.organizer.last_name || ''}`.trim()
     : 'Unknown'
-  const organizerName = activity.groups?.name || creatorName
-  const participantCount = activity.activity_participants?.filter(p => p.status === 'confirmed').length || 0
+  const organizerName = activity.group?.name || creatorName
+  const participantCount = activity.participant_count || 0
 
   return (
     <div className={styles.card}>
       {activity.banner_url && (
         <div className={styles.bannerContainer}>
-          <img 
-            src={activity.banner_url} 
+          <img
+            src={activity.banner_url}
             alt={activity.title}
             className={styles.banner}
           />
         </div>
       )}
-      
+
       <div className={styles.content}>
         <h1 className={styles.title}>{activity.title}</h1>
         
@@ -88,10 +82,21 @@ export default function ActivityPreview({ activity }: Props) {
             <span className={styles.detailText}>{formatDate(activity.start_time)}</span>
           </div>
 
-          {activity.location && (
+          {(activity.poi_name || activity.location || activity.address_full) && (
             <div className={styles.detailRow}>
               <span className={styles.icon}>📍</span>
-              <span className={styles.detailText}>{activity.location}</span>
+              <div className={styles.detailText}>
+                {activity.poi_name && (
+                  <div style={{ fontWeight: '600', marginBottom: '2px' }}>
+                    {activity.poi_name}
+                  </div>
+                )}
+                {(activity.location || activity.address_full) && (
+                  <div>
+                    {activity.location || activity.address_full}
+                  </div>
+                )}
+              </div>
             </div>
           )}
 
@@ -100,10 +105,10 @@ export default function ActivityPreview({ activity }: Props) {
             <span className={styles.detailText}>{organizerName}</span>
           </div>
 
-          {activity.activity_types && (
+          {activity.activity_type && (
             <div className={styles.detailRow}>
               <span className={styles.icon}>🏃</span>
-              <span className={styles.detailText}>{activity.activity_types.name}</span>
+              <span className={styles.detailText}>{activity.activity_type.name}</span>
             </div>
           )}
 
