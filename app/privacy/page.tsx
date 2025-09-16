@@ -123,6 +123,9 @@ export default function PrivacyPolicy() {
             <p className="privacy-text">
               We retain your personal information for as long as necessary to provide our services and fulfill the purposes described in this Privacy Policy. You may request deletion of your account and personal information at any time by contacting us.
             </p>
+            <p className="privacy-text">
+              <a href="/delete-account" className="privacy-link">Click here to request account and data deletion</a>
+            </p>
           </section>
 
           <section className="privacy-section">
@@ -133,7 +136,7 @@ export default function PrivacyPolicy() {
             <ul className="privacy-list">
               <li>Access and receive a copy of your personal data</li>
               <li>Correct or update inaccurate information</li>
-              <li>Delete your account and personal information</li>
+              <li><a href="/delete-account">Delete your account and personal information</a></li>
               <li>Object to or restrict certain processing</li>
               <li>Withdraw consent for data processing</li>
               <li>Data portability (receive your data in a structured format)</li>
