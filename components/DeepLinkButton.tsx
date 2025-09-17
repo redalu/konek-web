@@ -30,13 +30,13 @@ export default function DeepLinkButton({ type, id, title }: Props) {
 
   const getStoreUrl = (platform: Platform) => {
     const testFlightUrl = 'https://testflight.apple.com/join/xMTHB8p2'
-    const androidExpoUrl = 'https://expo.dev/accounts/redalu/projects/bolt-expo-nativewind/builds/95c9d9f5-0045-4e1c-acd5-8ca9dea9b785'
+    const androidUrl = 'https://play.google.com/apps/internaltest/4701749578789348403'
 
     switch (platform) {
       case 'ios':
         return testFlightUrl
       case 'android':
-        return androidExpoUrl
+        return androidUrl
       case 'web':
         return testFlightUrl
       default:
