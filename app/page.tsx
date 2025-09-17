@@ -9,18 +9,14 @@ export default function Home() {
         <div className="logo-section">
           <div className="logo-container">
             <Image
-              src="/assets/images/konek_logo_transparent.png"
+              src="/assets/images/konek_logo_with_text.jpeg"
               alt="Konek Logo"
-              width={100}
+              width={300}
               height={100}
               className="logo-image"
               priority
             />
           </div>
-
-          <h1 className="main-title">
-            Konek
-          </h1>
 
           <p className="description">
             Join sports, events, and social gatherings with like-minded people in your area.
@@ -55,7 +51,7 @@ export default function Home() {
 
             {/* Android Expo Button */}
             <Link
-              href="https://expo.dev/accounts/redalu/projects/bolt-expo-nativewind/builds/95c9d9f5-0045-4e1c-acd5-8ca9dea9b785"
+              href="https://play.google.com/apps/internaltest/4701749578789348403"
               target="_blank"
               rel="noopener noreferrer"
               className="download-button"
