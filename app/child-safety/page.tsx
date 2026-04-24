@@ -183,7 +183,7 @@ export default function ChildSafetyPolicy() {
             </p>
             <div className="privacy-contact">
               <p>
-                <strong>safety@konek.app</strong>
+                <strong>safety@konek.circle</strong>
               </p>
             </div>
             <p className="privacy-text">
@@ -275,7 +275,7 @@ export default function ChildSafetyPolicy() {
               <p>
                 <strong>Konek Trust and Safety Team</strong>
               </p>
-              <p>Email: safety@konek.app</p>
+              <p>Email: safety@konek.circle</p>
             </div>
             <p className="privacy-text">
               This contact is monitored during business hours and is empowered to
