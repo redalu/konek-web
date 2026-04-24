@@ -19,8 +19,13 @@ export default function Home() {
           </div>
 
           <p className="description">
-            Join sports, events, and social gatherings with like-minded people in your area.
-            Build connections that matter through shared experiences.
+            The consumer app to join sports, recreational and social events near you.
+            Connect with independent yoga teachers, sports coaches and fitness instructors
+            offering services in your area.
+          </p>
+          <p className="description description-secondary">
+            Konek is a free consumer mobile app for individuals seeking real-world sporting,
+            recreational and social connections in their local community.
           </p>
         </div>
 

@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Privacy Policy - Konek',
-  description: 'Privacy Policy for Konek - Connect with people around you for activities',
+  description: 'Privacy Policy for Konek - the consumer mobile app for sports, social and recreational events.',
 };
 
 export default function PrivacyPolicy() {
@@ -19,7 +19,7 @@ export default function PrivacyPolicy() {
           <section className="privacy-section">
             <h2 className="privacy-h2">1. Introduction</h2>
             <p className="privacy-text">
-              Welcome to Konek ("we," "our," or "us"). We are committed to protecting your personal information and your right to privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our mobile application.
+              Welcome to Konek ("we," "our," or "us"). Konek is a consumer mobile application that helps individuals discover and join sports, social and recreational events in their local community, and connect with independent fitness, wellness and sports professionals (such as yoga teachers, personal trainers and sports coaches). We are committed to protecting your personal information and your right to privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our consumer mobile application.
             </p>
             <p className="privacy-text">
               By using Konek, you agree to the collection and use of information in accordance with this Privacy Policy. If you do not agree with the terms of this policy, please do not use our application.
@@ -62,7 +62,7 @@ export default function PrivacyPolicy() {
 
             <h3 className="privacy-h3">Android Permissions</h3>
             <ul className="privacy-list">
-              <li><strong>Location (Fine & Coarse):</strong> To show nearby activities and connect you with people in your area</li>
+              <li><strong>Location (Fine & Coarse):</strong> To show nearby sporting, recreational and social events and connect you with consumers and independent leisure professionals in your area</li>
               <li><strong>Camera:</strong> To capture and upload profile photos and activity images</li>
               <li><strong>Storage (Read/Write):</strong> To save images and app data locally on your device</li>
               <li><strong>Notifications:</strong> To send you activity invites, updates, and important app information</li>
@@ -73,7 +73,7 @@ export default function PrivacyPolicy() {
 
             <h3 className="privacy-h3">iOS Permissions</h3>
             <ul className="privacy-list">
-              <li><strong>Location (Always/When In Use):</strong> To show nearby activities and provide location-based features</li>
+              <li><strong>Location (Always/When In Use):</strong> To show nearby sporting, recreational and social events and provide location-based consumer features</li>
               <li><strong>Camera & Photo Library:</strong> To capture, upload, and access photos for your profile and activities</li>
               <li><strong>Calendar & Reminders:</strong> To integrate with your calendar for activity scheduling</li>
               <li><strong>Push Notifications:</strong> To send you important updates and activity invitations</li>
@@ -86,13 +86,14 @@ export default function PrivacyPolicy() {
               We use the information we collect to:
             </p>
             <ul className="privacy-list">
-              <li>Create and manage your account</li>
-              <li>Connect you with other users for activities</li>
-              <li>Show you nearby activities based on your location</li>
-              <li>Send notifications about activity invites and updates</li>
-              <li>Improve and personalize your app experience</li>
-              <li>Communicate with you about our services</li>
-              <li>Ensure safety and security of our platform</li>
+              <li>Create and manage your consumer account</li>
+              <li>Connect you with other consumers for sporting, recreational and social events</li>
+              <li>Match you with independent leisure professionals (yoga teachers, sports coaches, fitness instructors) offering services in your area</li>
+              <li>Show you nearby community events and meetups based on your location</li>
+              <li>Send notifications about event invites, meetup updates and recreational activity reminders</li>
+              <li>Improve and personalize your consumer app experience</li>
+              <li>Communicate with you about our consumer services</li>
+              <li>Ensure safety and security of our consumer platform</li>
               <li>Comply with legal obligations</li>
             </ul>
           </section>
