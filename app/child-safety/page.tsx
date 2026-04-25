@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Child Safety Standards - Konek',
   description:
-    "Konek's published Child Safety Standards (CSAE / CSAM) policy. Konek is an adults-only social application and has zero tolerance for child sexual abuse and exploitation.",
+    "Konek's published Child Safety Standards (CSAE / CSAM) policy. Konek is a 16+ social application and has zero tolerance for child sexual abuse and exploitation.",
 };
 
 export default function ChildSafetyPolicy() {
@@ -29,13 +29,14 @@ export default function ChildSafetyPolicy() {
           <section className="privacy-section">
             <h2 className="privacy-h2">1. Our commitment</h2>
             <p className="privacy-text">
-              Konek is a social application for adults that helps users discover and
-              join real-world activities. We have <strong>zero tolerance</strong> for
-              child sexual abuse and exploitation (CSAE) and for child sexual abuse
-              material (CSAM). We are committed to:
+              Konek is a social application for users aged 16 and over that helps
+              them discover and join real-world activities. We have <strong>zero
+              tolerance</strong> for child sexual abuse and exploitation (CSAE) and
+              for child sexual abuse material (CSAM). We are committed to:
             </p>
             <ul className="privacy-list">
-              <li>Keeping minors under 18 off Konek.</li>
+              <li>Keeping users under 16 off Konek.</li>
+              <li>Protecting users aged 16 and 17, who remain legal minors, from CSAE on the platform.</li>
               <li>Removing CSAE/CSAM as quickly as we are made aware of it.</li>
               <li>Cooperating with law enforcement and child protection authorities.</li>
               <li>Continuously improving the safety of our platform.</li>
@@ -66,27 +67,30 @@ export default function ChildSafetyPolicy() {
           <section className="privacy-section">
             <h2 className="privacy-h2">3. Eligibility and age requirement</h2>
             <p className="privacy-text">
-              Konek is intended <strong>exclusively for users aged 18 and over</strong>.
+              Konek is intended <strong>for users aged 16 and over</strong>.
               By creating an account, every user represents and warrants that they
-              are at least 18 years old.
+              are at least 16 years old. Users aged 16 and 17 remain legal minors
+              and are protected by the CSAE/CSAM provisions described in this
+              policy.
             </p>
-            <p className="privacy-text">We rely on the following measures to keep minors off the platform:</p>
+            <p className="privacy-text">We rely on the following measures to keep users under 16 off the platform:</p>
             <ul className="privacy-list">
               <li>
                 <strong>User attestation:</strong> every user must declare their date
                 of birth during onboarding and accept the terms of service which
-                restrict the service to adults.
+                restrict the service to users aged 16 and over.
               </li>
               <li>
                 <strong>Reactive removal:</strong> any account we identify as
-                belonging to a minor, whether through a user report, automated
-                signal, or third-party notification, is suspended and the associated
-                content is removed.
+                belonging to a user under 16, whether through a user report,
+                automated signal, or third-party notification, is suspended and
+                the associated content is removed.
               </li>
               <li>
-                <strong>No content directed at minors:</strong> the application does
-                not contain features, advertising, or content directed at minors.
-                Konek's Play Store and App Store target audience setting is "Adults".
+                <strong>Age-appropriate content:</strong> the application does
+                not contain features, advertising, or content directed at children
+                under 16. Konek's Play Store and App Store target audience is set
+                to users aged 16 and over.
               </li>
             </ul>
           </section>

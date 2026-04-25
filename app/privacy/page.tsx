@@ -147,7 +147,7 @@ export default function PrivacyPolicy() {
           <section className="privacy-section">
             <h2 className="privacy-h2">9. Children's Privacy</h2>
             <p className="privacy-text">
-              Konek is not intended for use by children under 13 years of age. We do not knowingly collect personal information from children under 13. If we become aware that we have collected data from a child under 13, we will take steps to delete such information.
+              Konek is not intended for use by children under 16 years of age. We do not knowingly collect personal information from children under 16. If we become aware that we have collected data from a child under 16, we will take steps to delete such information.
             </p>
           </section>
 
@@ -172,8 +172,8 @@ export default function PrivacyPolicy() {
             </p>
             <div className="privacy-contact">
               <p><strong>Konek Support</strong></p>
-              <p>Email: privacy@konek.app</p>
-              <p>Website: www.konek.app</p>
+              <p>Email: privacy@konek.social</p>
+              <p>Website: www.konek.social</p>
             </div>
           </section>
 

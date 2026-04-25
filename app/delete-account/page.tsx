@@ -39,7 +39,7 @@ export default function DeleteAccount() {
               Send an email to our privacy team requesting account deletion:
             </p>
             <div className="privacy-contact">
-              <p><strong>Email:</strong> privacy@konek.be</p>
+              <p><strong>Email:</strong> privacy@konek.social</p>
               <p><strong>Subject:</strong> Account Deletion Request</p>
             </div>
             <p className="privacy-text">
@@ -108,8 +108,8 @@ export default function DeleteAccount() {
             </p>
             <div className="privacy-contact">
               <p><strong>Konek Support</strong></p>
-              <p>Email: privacy@konek.be</p>
-              <p>Website: www.konek.be</p>
+              <p>Email: privacy@konek.social</p>
+              <p>Website: www.konek.social</p>
             </div>
           </section>
         </div>

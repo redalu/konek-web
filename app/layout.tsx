@@ -7,11 +7,11 @@ const inter = Inter({ subsets: ['latin'] })
 export const metadata: Metadata = {
   title: 'Konek - Sports & Events | Local meetups for consumers',
   description: 'The consumer app to join sports, recreational and social events near you. Connect with independent yoga teachers, sports coaches and fitness instructors.',
-  metadataBase: new URL('https://konek.app'),
+  metadataBase: new URL('https://konek.social'),
   openGraph: {
     title: 'Konek - Sports & Events',
     description: 'Free consumer mobile app for sporting, recreational and social events in your local community. Find activity partners and connect with independent yoga teachers, sports coaches and fitness instructors.',
-    url: 'https://konek.app',
+    url: 'https://konek.social',
     siteName: 'Konek',
     images: [
       {

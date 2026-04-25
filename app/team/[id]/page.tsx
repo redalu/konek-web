@@ -53,7 +53,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     openGraph: {
       title,
       description,
-      url: `https://konek.app/team/${id}`,
+      url: `https://konek.social/team/${id}`,
       images: [imageUrl],
       type: 'website',
     },
